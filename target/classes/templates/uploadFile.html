@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <script src="js/jquery-2.2.2.min.js"></script>
+        <script src="js/uploadFile.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/uploadFile.css"/>
+        <title>aa</title>
+    </head>
+    <body>
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+           <div id="container">
+               <div id="fileDrag">
+                   <img src="images/upload.png"  style="width:304px;height:228px;"/>
+                   <br/>Drop your file here
+               </div>
+           </div>
+
+
+
+    </body>
+</html>

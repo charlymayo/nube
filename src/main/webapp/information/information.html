@@ -1,0 +1,33 @@
+<nav role="navigation" class=" navbar navbar-default navbar-tall navbar-full">
+    <div class="navbar-header">
+        <span class="text-center navbar-brand">{{ctrl.table.title}}</span>
+    </div>
+</nav>
+<div class="row" id="options" ng-hide="ctrl.waitingForConfirmation">
+    <a ng-click="ctrl.addRow()" class="col-md-2 btn btn-default" ><span class="glyphicon glyphicon-plus"></span> Add</a>
+    <a ng-click="ctrl.editRow()" class="col-md-2 btn btn-default" ng-class="{enabledButton : ctrl.selectedRowId != -1, disabledButton : ctrl.selectedRowId == -1}"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+    <a href="#" class="col-md-2 btn btn-default" ng-class="{enabledButton : ctrl.selectedRowId != -1, disabledButton : ctrl.selectedRowId == -1}"><span class="glyphicon glyphicon-minus"></span> Delete</a>
+</div>
+<div class="row" id="confirm" ng-hide="!ctrl.waitingForConfirmation">
+    <a ng-click="ctrl.clickConfirm()" class="col-md-2 btn btn-default"><span class="glyphicon glyphicon-ok" style="color:green"></span> Confirm</a>
+    <a ng-click="ctrl.clickCancel()" class="col-md-2 btn btn-default"><span class="glyphicon glyphicon-remove" style="color:red"></span> Cancel</a>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered table-hover">
+        <thead style="text-align: center">
+            <tr>
+                <th class="text-center" ng-repeat="header in ctrl.table.tHeaders">{{header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in ctrl.table.tRows" ng-click="ctrl.clickRow(row[0])" ng-class="{selected : ctrl.selectedRowId == row[0], '' : ctrl.selectedRowId != row[0]}" ng-include="ctrl.getTemplate(row[0])">
+            </tr>
+        </tbody>
+        <script type="text/ng-template" id="display">
+            <td class="text-center" ng-repeat="cell in row track by $index" >{{cell}}</td>
+        </script>
+        <script type="text/ng-template" id="edit">
+            <td ng-repeat="cell in row track by $index" ><input type="text" ng-model="cell" /></td>
+        </script>
+    </table>
+</div>

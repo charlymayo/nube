@@ -1,0 +1,114 @@
+.enabledButton{
+    cursor: pointer;
+}
+.disabledButton{
+    opacity: 0.4;
+    pointer-events: none;
+}
+.selected{
+    background-color:#E0F2F7 !important;
+}
+.header{
+    background-color: #0080FF;
+}
+.text-center{
+    text-align: center !important;
+}
+.box {
+    background-color: #fff;
+    font-size: 1.25rem;
+    padding: 100px 20px;
+    position: relative;
+    width: 680px;
+    text-align: center;
+}
+.box.has-advanced-upload {
+    outline: 3px dashed #000;
+    outline-offset: -10px;
+    transition: outline-offset 0.15s ease-in-out 0s, background-color 0.15s linear 0s;
+}
+.box.is-dragover {
+    background-color: transparent;
+    outline-color: #000;
+    outline-offset: -20px;
+}
+.box__dragndrop, .box__icon {
+    display: none;
+}
+.box.has-advanced-upload .box__dragndrop {
+    display: inline;
+}
+.box.has-advanced-upload .box__icon {
+    display: block;
+    fill: #000;
+    height: 80px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.box.is-uploading .box__input, .box.is-success .box__input, .box.is-error .box__input {
+    visibility: hidden;
+}
+.box__uploading, .box__success, .box__error {
+    display: none;
+}
+.box.is-uploading .box__uploading, .box.is-success .box__success, .box.is-error .box__error {
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.box__uploading {
+    font-style: italic;
+}
+.box__success {
+    animation: 0.25s ease-in-out 0s normal none 1 running appear-from-inside;
+}
+.box__restart {
+    font-weight: 700;
+}
+.box__restart:focus, .box__restart:hover {
+    color: #39bfd3;
+}
+.js .box__file {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+}
+.js .box__file + label {
+    cursor: pointer;
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.js .box__file + label:hover strong, .box__file:focus + label strong, .box__file.has-focus + label strong {
+    color: rgba(48, 44, 50, 0.45);
+}
+.js .box__file:focus + label, .js .box__file.has-focus + label {
+    outline: 1px dotted #000;
+}
+.js .box__file + label * {
+}
+.no-js .box__file + label {
+    display: none;
+}
+.no-js .box__button {
+    display: block;
+}
+.box__button {
+    background-color: #39bfd3;
+    color: #e5edf1;
+    display: none;
+    font-weight: 700;
+    margin: 40px auto 0;
+    padding: 8px 16px;
+}
+.box__button:hover, .box__button:focus {
+    background-color: #0f3c4b;
+}
