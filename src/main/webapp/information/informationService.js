@@ -44,10 +44,7 @@
                        });
             },
             TSendModification: function(action, row, table){
-
-                console.log("entra");
-
-
+                
                 var req = {
                     method: 'POST',
                     url: 'http://testserver01.enlacenet.net:3000/update',
