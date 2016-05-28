@@ -44,7 +44,7 @@
                        });
             },
             TSendModification: function(action, row, table){
-                
+
                 var req = {
                     method: 'POST',
                     url: 'http://testserver01.enlacenet.net:3000/update',
@@ -56,9 +56,6 @@
 
                 $http(req).then(function(){alert("ok")}, function(){alert("error")});
             }
-
         }
-
-
     }])
 })();
