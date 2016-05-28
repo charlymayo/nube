@@ -4,8 +4,7 @@
     app.factory('homeService', ['$http',function($http) {
         var config = {headers:  {
             'Content-Type': "application/json; charset=utf-8"
-        }
-        };
+        }};
         return {
             getTables: function(){
                 var tables = [];
