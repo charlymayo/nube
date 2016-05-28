@@ -24,18 +24,18 @@
     <table class="table table-striped table-bordered table-hover">
         <thead style="text-align: center">
             <tr>
-                <th class="info text-center" ng-repeat="header in ctrl.table.tHeaders">{{header}}</th>
+                <th class="info text-center" ng-repeat="header in ctrl.table.tHeaders" ng-if="$index > 0">{{header}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in ctrl.table.tRows" ng-click="ctrl.clickRow(row[0])" ng-class="{selected : ctrl.selectedRowId == row[0], '' : ctrl.selectedRowId != row[0]}" ng-include="ctrl.getTemplate(row[0])">
+            <tr ng-repeat="row in ctrl.table.tRows"  ng-click="ctrl.clickRow($index)" ng-class="{selected : ctrl.selectedRowIndex == $index, '' : ctrl.selectedRowIndex != $index}" ng-include="ctrl.getTemplate($index)">
             </tr>
         </tbody>
         <script type="text/ng-template" id="display">
-            <td class="text-center" ng-repeat="cell in row track by $index" >{{cell}}</td>
+            <td class="text-center" ng-repeat="cell in row track by $index" ng-if="$index > 0">{{cell}}</td>
         </script>
         <script type="text/ng-template" id="edit">
-            <td ng-repeat="cell in row track by $index" ><input type="text" ng-model="cell" /></td>
+            <td ng-repeat="cell in row track by $index" ng-if="$index > 0"><input type="text" ng-model="ctrl.table.tRows[ctrl.selectedRowIndex][$index]" ></td>
         </script>
     </table>
 </div>

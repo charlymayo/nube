@@ -20,13 +20,10 @@
                 return $http.get('http://testserver01.enlacenet.net:3000/gettabla?tabla=' + tableName)
                     .then(function(response) {
 
-                        for(var keyName in response.data){
-                            table.title = tableName;
-                            break;
-                        }
+                        table.title = tableName;
 
                         var headersReady = false;
-                        response.data.forEach(function(element){
+                        response.data.Datos.forEach(function(element){
                             var row = [];
                             angular.forEach(element, function(key, value) {
                                 row.push(key);
@@ -51,7 +48,7 @@
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    data:  'data=' + row.join() + '&action=' + action + 'table=' + table
+                    data:  'data=' + row.join() + '&action=' + action + '&table=' + table
                 };
 
                 $http(req).then(function(){alert("ok")}, function(){alert("error")});
