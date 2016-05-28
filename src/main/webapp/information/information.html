@@ -15,7 +15,11 @@
         <a ng-click="ctrl.clickCancel()" class="btn btn-warning"><i class="fa fa-eraser" aria-hidden="true"></i> Cancel</a>
     </div>
     <div class="btn-group pull-right">
-        <a class="btn btn-info"><i class="fa fa-cloud-download" aria-hidden="true"></i> Export</a>
+        <form action="http://testserver01.enlacenet.net:4000/getxls" method="GET">
+            <input type="text" name="tabla" value="{{ctrl.table.title}}" style="display: none">
+            <input class="btn btn-info" type="submit" value="Export">
+        </form>
+        <!--a class="btn btn-info"><i class="fa fa-cloud-download" aria-hidden="true"></i> Export</a-->
     </div>
 </div>
 <br>

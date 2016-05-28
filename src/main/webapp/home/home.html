@@ -29,23 +29,30 @@
         </ul>
     </div>
 </div>
+<!--
 <div>
-    <button class="btn btn-success" onclick="putas()"></button>
+    <form action="http://testserver01.enlacenet.net:4000/getxls" method="GET">
+        <input type="text" name="tabla" value="calificaciones" style="display: none">
+        <input class="btn btn-danger" type="submit" value="submit">
+    </form>
 </div>
 <iframe id="my_iframe" style="display:none;"></iframe>
-
+-->
 <script>
     function putas(){
         console.log("putas");
-        var nombre = 'calificaciones'
+        var nombre = 'calificaciones';
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: 'http://testserver01.enlacenet.net:4000/getxls',
             data: {tabla: nombre},
             success: function (data) {
-                document.getElementById('my_iframe').src = "http://testserver01.enlacenet.net:4000" + data;
+                console.log(data)
+                document.getElementById('my_iframe').src = data;
             },
-            error: function () { }
+            error: function (data) {
+                console.log(data)
+            }
         });
     }
 </script>
