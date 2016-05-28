@@ -43,7 +43,7 @@
                         return $q.reject(response.data)
                        });
             },
-            TSendModification: function(row){
+            TSendModification: function(action, row, table){
 
                 console.log("entra");
 
@@ -52,9 +52,9 @@
                     method: 'POST',
                     url: 'http://testserver01.enlacenet.net:3000/update',
                     headers: {
-                        'Content-Type': 'text/html'
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    data: { perro: 'aaaaa'  }
+                    data:  'data=' + row.join() + '&action=' + action + 'table=' + table
                 };
 
                 $http(req).then(function(){alert("ok")}, function(){alert("error")});

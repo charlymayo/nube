@@ -11,6 +11,7 @@
         self.waitingForConfirmation = false;
         self.backup = null;
         self.table = null;
+        self.action = '';
 
         self.findRow = function(rowId){
             for(var i = 0; i < self.table.tRows.length; i++)
@@ -37,7 +38,7 @@
         };
 
         self.clickConfirm = function(){
-            informationService.TSendModification(self.table.tRows[self.findRow(self.selectedRowId)]);
+            informationService.TSendModification(self.action, self.table.tRows[self.findRow(self.selectedRowId)], self.table.title);
             self.waitingForConfirmation = false;
             self.editingRowId = -1;
             self.rowWasAdded = false;
@@ -49,12 +50,14 @@
         };
 
         self.editRow = function(){
+            self.action = 'update';
             self.editingRowId  = self.selectedRowId;
             self.waitingForConfirmation = true;
             self.backup = self.table.tRows[self.findRow(self.selectedRowId)];
         };
 
         self.addRow = function(){
+            self.action = 'insert';
             self.rowWasAdded = true;
             self.table.tRows.push([' ',' ',' ',' ',' ']);
             self.selectedRowId = self.table.tRows.length;
