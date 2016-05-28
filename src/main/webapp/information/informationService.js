@@ -26,7 +26,10 @@
                         }
 
 
+
+
                         
+
                         var headersReady = false;
                         response.data.forEach(function(element){
                             var row = [];
