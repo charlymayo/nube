@@ -42,6 +42,7 @@
             $input.on( 'change', function( e ) {
                 showFiles( e.target.files );
                 $form.trigger( 'submit' );
+                self.getTables();
             });
 
 
@@ -76,9 +77,7 @@
                         var request = new XMLHttpRequest();
                         request.open('POST', "/upload");
                         request.send(formData);
-                        alert(request.response);
-                        $location.path("/information");
-                        $scope.$apply();
+                        self.getTables();
                     });
             }
 

@@ -51,7 +51,7 @@
                     data:  'data=' + row.join() + '&action=' + action + '&table=' + table
                 };
 
-                $http(req).then(function(){alert("ok")}, function(){alert("error")});
+                $http(req).then(function(){}, function(){});
             }
         }
     }])

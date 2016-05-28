@@ -11,7 +11,6 @@
         self.table = null;
         self.action = '';
 
-
         self.getTemplate = function(rowIndex){
             if(parseInt(rowIndex) == self.editingRowIndex)
                 return 'edit';
@@ -52,7 +51,7 @@
         self.addRow = function(){
             self.action = 'insert';
             var tmp = [];
-            for(var i = 0; i < self.table.tRows.length; i++)
+            for(var i = 0; i < self.table.tRows[0].length; i++)
                 tmp.push('');
             self.table.tRows.push(tmp);
             self.selectedRowIndex = self.table.tRows.length - 1;
