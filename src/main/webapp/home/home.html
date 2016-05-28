@@ -29,3 +29,27 @@
         </ul>
     </div>
 </div>
+<div>
+    <button class="btn btn-success" onclick="putas()"></button>
+</div>
+<iframe id="my_iframe" style="display:none;"></iframe>
+
+<script>
+
+</script>
+
+<script>
+    function putas(){
+        console.log("putas");
+        var nombre = 'calificaciones'
+        $.ajax({
+            type: "POST",
+            url: 'http://testserver01.enlacenet.net:4000/getxls',
+            data: {tabla: nombre},
+            success: function (data) {
+                document.getElementById('my_iframe').src = "http://testserver01.enlacenet.net:4000" + data;
+            },
+            error: function () { }
+        });
+    }
+</script>
