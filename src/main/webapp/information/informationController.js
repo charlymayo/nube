@@ -15,6 +15,8 @@
         self.getTemplate = function(rowIndex){
             if(parseInt(rowIndex) == self.editingRowIndex)
                 return 'edit';
+            if(parseInt(rowIndex) == self.selectedRowIndex && self.waitingForConfirmation && self.action == 'delete')
+                return 'delete';
             return 'display';
         };
 
@@ -39,6 +41,11 @@
         self.editRow = function(){
             self.action = 'update';
             self.editingRowIndex  = self.selectedRowIndex;
+            self.waitingForConfirmation = true;
+        };
+
+        self.deleteRow = function(){
+            self.action = 'delete';
             self.waitingForConfirmation = true;
         };
 

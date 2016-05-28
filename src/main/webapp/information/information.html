@@ -8,7 +8,7 @@
     <div class="btn-group" id="options" ng-hide="ctrl.waitingForConfirmation">
         <a ng-click="ctrl.addRow()" class=" btn btn-success" ><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
         <a ng-click="ctrl.editRow()" class=" btn btn-warning" ng-class="{enabledButton : ctrl.selectedRowId != -1, disabledButton : ctrl.selectedRowId == -1}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-        <a href="#" class=" btn btn-danger" ng-class="{enabledButton : ctrl.selectedRowId != -1, disabledButton : ctrl.selectedRowId == -1}"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+        <a ng-click="ctrl.deleteRow()" class=" btn btn-danger" ng-class="{enabledButton : ctrl.selectedRowId != -1, disabledButton : ctrl.selectedRowId == -1}"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
     </div>
     <div class="btn-group" id="confirm" ng-hide="!ctrl.waitingForConfirmation">
         <a ng-click="ctrl.clickConfirm()" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Confirm</a>
@@ -36,6 +36,9 @@
         </script>
         <script type="text/ng-template" id="edit">
             <td ng-repeat="cell in row track by $index" ng-if="$index > 0"><input type="text" ng-model="ctrl.table.tRows[ctrl.selectedRowIndex][$index]" ></td>
+        </script>
+        <script type="text/ng-template" id="delete">
+            <td class="text-center" ng-repeat="cell in row track by $index" ng-if="$index > 0" style="background-color: red">{{cell}}</td>
         </script>
     </table>
 </div>

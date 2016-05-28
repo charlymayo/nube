@@ -17,7 +17,7 @@
 
                 var table = new Table();
 
-                return $http.get('http://testserver01.enlacenet.net:3000/gettabla?tabla=' + tableName)
+                return $http.get('http://testserver01.enlacenet.net:4000/gettabla?tabla=' + tableName)
                     .then(function(response) {
 
                         table.title = tableName;
@@ -44,7 +44,7 @@
 
                 var req = {
                     method: 'POST',
-                    url: 'http://testserver01.enlacenet.net:3000/update',
+                    url: 'http://testserver01.enlacenet.net:4000/update',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
